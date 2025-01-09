@@ -31,9 +31,11 @@ Sub StockMarket()
     outputRow = 2
 
     For i = 2 To lastRow
+       
         totalVolume = totalVolume + Cells(i, "G").Value
         
         ' Check if the ticker changes or it's the last row
+      
         If Cells(i + 1, "A").Value <> Cells(i, "A").Value Then
             ticker = Cells(i, "A").Value
             closePrice = Cells(i, "F").Value
