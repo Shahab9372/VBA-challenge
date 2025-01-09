@@ -27,7 +27,9 @@ Sub StockMarket()
     lastRow = Cells(Rows.Count, "A").End(xlUp).Row
 
     openPrice = Cells(2, "C").Value
+    
     totalVolume = 0
+   
     outputRow = 2
 
     For i = 2 To lastRow
@@ -37,6 +39,7 @@ Sub StockMarket()
         ' Check if the ticker changes or it's the last row
       
         If Cells(i + 1, "A").Value <> Cells(i, "A").Value Then
+            
             ticker = Cells(i, "A").Value
             closePrice = Cells(i, "F").Value
             quarterlyChange = closePrice - openPrice
@@ -53,28 +56,43 @@ Sub StockMarket()
             Cells(outputRow, "L").Value = totalVolume
 
 outputRow = outputRow + 1
+           
             openPrice = Cells(i + 1, "C").Value
+           
             totalVolume = 0
+     
         End If
+   
     Next i
 
 'Greatest % increase, Greatest % decrease, Greatest total volume
 
     For i = 2 To lastRow
+       
         If Cells(i, "K").Value > maxIncrease Then
+          
             maxIncrease = Cells(i, "K").Value
+           
             tickerMaxIncrease = Cells(i, "I").Value
+     
         End If
 
         If Cells(i, "K").Value < maxDecrease Then
+           
             maxDecrease = Cells(i, "K").Value
+            
             tickerMaxDecrease = Cells(i, "I").Value
+       
         End If
 
         If Cells(i, "L").Value > maxVolume Then
+           
             maxVolume = Cells(i, "L").Value
+            
             tickerMaxVolume = Cells(i, "I").Value
+       
         End If
+   
     Next i
 
         
