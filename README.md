@@ -1,7 +1,11 @@
 The only thing that I used outside the class lecture was how to find the last row
+
 lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+
 https://stackoverflow.com/questions/38882321/better-way-to-find-last-used-row
+
 Following is my script:
+
 Sub StockMarket()
     
     Dim openPrice As Double
